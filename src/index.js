@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Cartao from './Cartao.js';
 import Form from './Form.js';
-import Lista from './Lista';
+import Lista from './Lista'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = ()=>{
