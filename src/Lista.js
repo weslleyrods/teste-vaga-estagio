@@ -7,7 +7,7 @@ const Lista = (props)=>{
     // const [isPending, setIsPending] = useState(true);
     // const [error, setError] = useState([]);
 
-    const {data: empresas, isPending, error} = useFetch('http://localhost:8000/empresass')
+    const {data: empresas, isPending, error} = useFetch('http://localhost:8000/empresas')
     // useEffect(()=>{
     //     fetch('http://localhost:8000/empresas')
     //     .then(res=>{

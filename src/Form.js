@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, {useState} from "react";
 const Form = (props)=>{
 
 // const [cnpj, setCnpj] = useState('');
@@ -8,6 +8,8 @@ const Form = (props)=>{
 // const [endereco, setEndereco] = useState('');
 // const [numeroEnd, setNumeroEnd] = useState('');
 // const [bairro, setBairro] = useState('');
+
+const [isPending, setIsPending] = useState(false);
 
 const [state, setState] = React.useState({
     cnpj:'',
@@ -26,23 +28,46 @@ const [state, setState] = React.useState({
         )      
 }
 
+const handleSubmit = (e) =>{
+    // e.preventDefault();
+    const empresa = {
+        cnpj: state.cnpj,
+        nome: state.nome,
+        cep: state.cep,
+        endereco: state.endereco,
+        numeroEnd: state.numeroEnd,
+        bairro: state.bairro
+    }
+    setIsPending(true);
+
+    fetch('http://localhost:8000/empresas', {
+        method: 'POST',
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(empresa)
+    })
+    .then(()=>{
+        console.log('Empresa adicionada!');
+        setIsPending(false);
+    })
+}
+
 
 
     return(
 
-    <form>
+    <form onSubmit={handleSubmit}>
         <div className="row mx-2">
             <div className='mb-3'>
                 <label className='form-label'>CNPJ:
                 </label>
-                <input type="text" name='cnpj'className='form-control'
+                <input required type="text" name='cnpj'className='form-control'
                 value={state.cnpj}
                 onChange={handleChange}/>
             </div>
             <div className='mb-3'>                
                 <label className='form-label'>Nome da Empresa:
                 </label>
-                <input type="text" name='nome'className='form-control'
+                <input required type="text" name='nome'className='form-control'
                 value={state.nome}
                 onChange={handleChange}/>
             </div>
@@ -50,28 +75,28 @@ const [state, setState] = React.useState({
             <div className='mb-3'>                
                 <label className='form-label'>CEP:
                 </label>
-                <input type="text" name='cep'className='form-control'
+                <input required type="text" name='cep'className='form-control'
                 value={state.cep}
                 onChange={handleChange}/>
             </div>
             <div className='mb-3'>                
                 <label className='form-label'>Endereço:
                 </label>
-                <input type="text" name='endereco'className='form-control'
+                <input required type="text" name='endereco'className='form-control'
                 value={state.endereco}
-                onChange={{handleChange}}/>
+                onChange={handleChange}/>
             </div>
             <div className='mb-3'>                
                 <label className='form-label'>Número:
                 </label>
-                <input type="text" name='numeroEnd'className='form-control'
+                <input required type="text" name='numeroEnd'className='form-control'
                 value={state.numeroEnd}
                 onChange={handleChange}/>
             </div>
             <div className='mb-3'>                
                 <label className='form-label'>Bairro:
                 </label>
-                <input type="text" name='bairro'className='form-control'
+                <input required type="text" name='bairro'className='form-control'
                 value={state.bairro}
                 onChange={handleChange}/>
     </div>
@@ -79,15 +104,17 @@ const [state, setState] = React.useState({
             {/*Cidade*/}         
             <div className='d-flex justify-content-around'>
             <button type='submit' className='btn btn-danger'>Cancelar</button>
-            <button type='submit' className='btn btn-primary'>Salvar</button>
+            {!isPending &&  <button type='submit' className='btn btn-primary'>Salvar</button>}
+            {isPending &&  <button type='submit' className='btn btn-primary'>Salvando...</button>}
+
             </div>
         </div>
-        <p>{state.cnpj}</p>
+        {/* <p>{state.cnpj}</p>
         <p>{state.nome}</p>
         <p>{state.cep}</p>
         <p>{state.endereco}</p>
         <p>{state.numeroEnd}</p>
-        <p>{state.bairro}</p>
+        <p>{state.bairro}</p>/ */}
     </form>
     )
 } 
