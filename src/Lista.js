@@ -1,30 +1,32 @@
 import {useState, useEffect} from 'react';
+import useFetch from './useFetch';
 
 
 const Lista = (props)=>{
-    const [empresas, setEmpresas] = useState([]);
-    const [isPending, setIsPending] = useState(true);
-    const [error, setError] = useState([]);
+    // const [empresas, setEmpresas] = useState([]);
+    // const [isPending, setIsPending] = useState(true);
+    // const [error, setError] = useState([]);
 
-    useEffect(()=>{
-        fetch('http://localhost:8000/empresas')
-        .then(res=>{
-            if(!res.ok){
-                throw Error('Não foi possível carregados os dados, tente novamente mais tarde.')
-            }
+    const {data: empresas, isPending, error} = useFetch('http://localhost:8000/empresass')
+    // useEffect(()=>{
+    //     fetch('http://localhost:8000/empresas')
+    //     .then(res=>{
+    //         if(!res.ok){
+    //             throw Error('Não foi possível carregados os dados, tente novamente mais tarde.')
+    //         }
 
-            return res.json();
-        })
-        .then(data=>{
-            setEmpresas(data);
-            setIsPending(false);
-            setError([]); 
-        })
-        .catch((err)=>{
-            setIsPending(false); 
-            setError(err.message);
-        })
-    },[]);
+    //         return res.json();
+    //     })
+    //     .then(data=>{
+    //         setEmpresas(data);
+    //         setIsPending(false);
+    //         setError([]); 
+    //     })
+    //     .catch((err)=>{
+    //         setIsPending(false); 
+    //         setError(err.message);
+    //     })
+    // },[]);
 
     return(
         <div>           
@@ -35,14 +37,14 @@ const Lista = (props)=>{
                             <th>Nome da Empresa</th>
                             <th>Editar</th>                    
                         </tr>
-                    {error && <div>{error}</div>}
+                    {<div>{error}</div>}
                     {isPending && <div>Carregando...</div>}
                     </thead>
-                    {empresas.map((empresa)=>(
+                    {empresas.map((empresas)=>(
                     <tbody >
-                        <tr key={empresa.id}>
-                            <td>{empresa.cnpj}</td>
-                            <td>{empresa.nome}</td>
+                        <tr key={empresas.id}>
+                            <td>{empresas.cnpj}</td>
+                            <td>{empresas.nome}</td>
                             <td><a href=''>Edit</a></td>
                         </tr>
                     </tbody>
