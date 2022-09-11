@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 
 
 const Lista = (props)=>{
-    const [empresas, setEmpresas] = useState(null);
+    const [empresas, setEmpresas] = useState([]);
 
     useEffect(()=>{
         fetch('http://localhost:8000/empresas')
@@ -24,7 +24,7 @@ const Lista = (props)=>{
                             <th>Editar</th>                    
                         </tr>
                     </thead>
-                    {empresas && empresas.map((empresa)=>(
+                    {empresas.map((empresa)=>(
                     <tbody >
                         <tr key={empresa.id}>
                             <td>{empresa.cnpj}</td>
