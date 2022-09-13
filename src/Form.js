@@ -28,6 +28,10 @@ const [state, setState] = React.useState({
         )      
 }
 
+const handleClick = ()=>{
+    setState('')
+}
+
 const handleSubmit = (e) =>{
     // e.preventDefault();
     const empresa = {
@@ -99,11 +103,11 @@ const handleSubmit = (e) =>{
                 <input required type="text" name='bairro'className='form-control'
                 value={state.bairro}
                 onChange={handleChange}/>
-    </div>
+        </div>
             {/*UF*/}
             {/*Cidade*/}         
             <div className='d-flex justify-content-around'>
-            <button type='submit' className='btn btn-danger'>Cancelar</button>
+            <button type='reset' onClick={handleClick}className='btn btn-danger'>Cancelar</button>
             {!isPending &&  <button type='submit' className='btn btn-primary'>Salvar</button>}
             {isPending &&  <button type='submit' className='btn btn-primary'>Salvando...</button>}
 
