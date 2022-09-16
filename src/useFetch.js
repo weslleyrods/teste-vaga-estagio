@@ -12,7 +12,6 @@ const useFetch = (url)=>{
             if(!res.ok){
                 throw Error('Não foi possível carregados os dados, tente novamente mais tarde.')
             }
-
             return res.json();
         })
         .then(data=>{

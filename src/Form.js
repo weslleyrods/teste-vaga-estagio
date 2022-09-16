@@ -1,5 +1,6 @@
 
 import React, {useState} from "react";
+import useFetch from "./useFetch";
 const Form = (props)=>{
 
 // const [cnpj, setCnpj] = useState('');
@@ -18,6 +19,8 @@ const [state, setState] = React.useState({
     endereco:'',
     numeroEnd:'',
     bairro:'',
+    uf: '',
+    cidade: '',
 })
     
     function handleChange(e){
@@ -40,7 +43,9 @@ const handleSubmit = (e) =>{
         cep: state.cep,
         endereco: state.endereco,
         numeroEnd: state.numeroEnd,
-        bairro: state.bairro
+        bairro: state.bairro,
+        uf: state.uf,
+        cidade: state.cidade
     }
     setIsPending(true);
 
@@ -55,6 +60,11 @@ const handleSubmit = (e) =>{
     })
 }
 
+    const {data: estados} = useFetch('http://localhost:8000/estados')
+    
+    const buscaEstados = estados.map(estado => 
+        <option value={estado.nome}>{estado.nome}</option>                  
+        )
 
 
     return(
@@ -103,22 +113,31 @@ const handleSubmit = (e) =>{
                 <input required type="text" name='bairro'className='form-control'
                 value={state.bairro}
                 onChange={handleChange}/>
-        </div>
-            {/*UF*/}
-            {/*Cidade*/}         
+            </div>
+            <div className='mb-3'>                
+                <label className='form-label' for="estado">UF:</label>
+                <select required name='uf'className='form-select'
+                value={state.uf}
+                onChange={handleChange}
+                >
+                    <option disabled selected value=""></option>
+                {buscaEstados}
+                </select>
+            </div>
+
+            <div className="mb-3">
+                <label className='form-label' for='cidade'>Cidade:</label>
+                <input required type="text" name='cidade' className='form-control'
+                value={state.cidade}
+                onChange={handleChange}
+                />
+            </div>
             <div className='d-flex justify-content-around'>
             <button type='reset' onClick={handleClick}className='btn btn-danger'>Cancelar</button>
             {!isPending &&  <button type='submit' className='btn btn-primary'>Salvar</button>}
             {isPending &&  <button type='submit' className='btn btn-primary'>Salvando...</button>}
-
             </div>
         </div>
-        {/* <p>{state.cnpj}</p>
-        <p>{state.nome}</p>
-        <p>{state.cep}</p>
-        <p>{state.endereco}</p>
-        <p>{state.numeroEnd}</p>
-        <p>{state.bairro}</p>/ */}
     </form>
     )
 } 
