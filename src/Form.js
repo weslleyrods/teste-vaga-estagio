@@ -31,10 +31,6 @@ const [state, setState] = React.useState({
         )      
 }
 
-const handleClick = ()=>{
-    setState('')
-}
-
 const handleSubmit = (e) =>{
     // e.preventDefault();
     const empresa = {
@@ -65,7 +61,12 @@ const handleSubmit = (e) =>{
     const buscaEstados = estados.map(estado => 
         <option value={estado.nome}>{estado.nome}</option>                  
         )
+    
+    const handleClick = ()=>{
+        setState('')   
+            }
 
+    
 
     return(
 
@@ -116,12 +117,12 @@ const handleSubmit = (e) =>{
             </div>
             <div className='mb-3'>                
                 <label className='form-label' for="estado">UF:</label>
-                <select required name='uf'className='form-select'
+                <select id='teste'required name='uf'className='form-select'
                 value={state.uf}
                 onChange={handleChange}
                 >
-                    <option disabled selected value=""></option>
                 {buscaEstados}
+
                 </select>
             </div>
 
@@ -133,7 +134,7 @@ const handleSubmit = (e) =>{
                 />
             </div>
             <div className='d-flex justify-content-around'>
-            <button type='reset' onClick={handleClick}className='btn btn-danger'>Cancelar</button>
+            <button type='reset' onClick={handleClick} className='btn btn-danger'>Cancelar</button>
             {!isPending &&  <button type='submit' className='btn btn-primary'>Salvar</button>}
             {isPending &&  <button type='submit' className='btn btn-primary'>Salvando...</button>}
             </div>
