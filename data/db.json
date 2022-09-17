@@ -1,6 +1,27 @@
 {
   "empresas": [
-    
+    {
+      "cnpj": "12345974987",
+      "nome": "FM Consult",
+      "cep": "49849849",
+      "endereco": "Rua A",
+      "numeroEnd": "78",
+      "bairro": "Tatuapé",
+      "uf": "São Paulo",
+      "cidade": "São Paulo",
+      "id": 1
+    },
+    {
+      "cnpj": "1654984",
+      "nome": "Luan Corp",
+      "cep": "478497",
+      "endereco": "Rua L",
+      "numeroEnd": "52",
+      "bairro": "Jabuticaba",
+      "uf": "Rio de Janeiro",
+      "cidade": "Goytacazes",
+      "id": 2
+    }
   ],
   "estados": [
     {

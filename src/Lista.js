@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import useFetch from './useFetch';
+import {Link} from 'react-router-dom';
 
 
 const Lista = (props)=>{
@@ -45,7 +46,9 @@ const Lista = (props)=>{
                         <tr key={empresas.id}>
                             <td>{empresas.cnpj}</td>
                             <td>{empresas.nome}</td>
-                            <td><a href=''>Edit</a></td>
+                            <td>
+                                <Link to={`/edit/${empresas.id}`}>Edit</Link>
+                            </td>
                         </tr>
                     </tbody>
                     ))}
