@@ -21,6 +21,17 @@
       "uf": "Rio de Janeiro",
       "cidade": "Goytacazes",
       "id": 2
+    },
+    {
+      "cnpj": "87481984",
+      "nome": "Wes Inc",
+      "cep": "79849889",
+      "endereco": "Rua W",
+      "numeroEnd": "54",
+      "bairro": "Limão",
+      "uf": "Pernambuco",
+      "cidade": "Não sei",
+      "id": 3
     }
   ],
   "estados": [

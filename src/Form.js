@@ -35,7 +35,7 @@ const handleSubmit = (e) =>{
     // e.preventDefault();
     const empresa = {
         cnpj: state.cnpj,
-        nome: state.nome,
+        nome: state.nohandleSubmitme,
         cep: state.cep,
         endereco: state.endereco,
         numeroEnd: state.numeroEnd,
@@ -63,10 +63,8 @@ const handleSubmit = (e) =>{
         )
     
     const handleClick = ()=>{
-        setState('')   
-            }
-
-    
+        setState('')
+        }
 
     return(
 
