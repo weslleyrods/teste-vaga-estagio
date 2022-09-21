@@ -1,26 +1,72 @@
 import { useParams } from 'react-router-dom';
+import React, { useEffect, useState }  from 'react';
 import useFetch from './useFetch';
-import { useState }  from 'react';
-
 
 const Edit = () =>{
     const { id } = useParams()
-    const {data: empresas, isPending, error} = useFetch(`http://localhost:8000/empresas/${id}`)
+    
+    let {data: empresas, isPending, error} = useFetch(`http://localhost:8000/empresas/${id}`)
+
     const {data: estados} = useFetch('http://localhost:8000/estados')
     
-
-    console.log(empresas);
-    const handleSubmit =()=>{}
-    const handleChange =()=>{}
-    const handleClick = ()=>{}
+    const [state, setState] = React.useState({
+        cnpj:'',
+        nome:'',
+        cep: '',
+        endereco:'',
+        numeroEnd:'',
+        bairro:'',
+        uf: '',
+        cidade: '',     
     
+    })
+
+    //console.log(empresas);
+    const handleSubmit =(e)=>{
+        const empresa = {
+            nome: empresas.nome,
+            cnpj: empresas.cnpj,
+            cep: empresas.cep,
+            endereco: empresas.endereco,
+            numeroEnd: empresas.numeroEnd,
+            bairro: empresas.bairro,
+            uf: empresas.uf,
+            cidade: empresas.cidade
+        }
+        //const empresa = state
+
+        //setIsPending(true)
+        console.log(empresa);
+    
+        fetch(`http://localhost:8000/empresas/${id}`, {
+            method: 'PUT',
+            headers: {"Content-Type":"application/json"},
+            body: JSON.stringify(empresa)
+        })
+        .then(()=>{
+            console.log('Empresa atualizada!');
+            //setIsPending(false);
+        })
+    }
+
+    const handleChange =(e)=>{
+        let value = e.target.value;
+        setState({
+            ...state,
+            [e.target.name]: value},
+        )
+        empresas[e.target.name] = value
+    }
+
+    const handleClick = ()=>{}
+
     const buscaEstados = estados.map(estado => 
         <option value={estado.nome}>{estado.nome}</option>                  
         )
-
     
     return(
         <form onSubmit={handleSubmit}>
+            {console.log('Renderizou')}
         <div className="row mx-2">
             <div className='mb-3'>
                 <label className='form-label'>CNPJ:
@@ -86,12 +132,11 @@ const Edit = () =>{
             </div>
             <div className='d-flex justify-content-around'>
             <button type='reset' onClick={handleClick} className='btn btn-danger'>Cancelar</button>
-            {!isPending &&  <button type='submit' className='btn btn-primary'>Salvar</button>}
-            {isPending &&  <button type='submit' className='btn btn-primary'>Salvando...</button>}
+            { !isPending && <button type='submit' className='btn btn-primary'>Salvar</button>}
+            {/* {<button type='submit' className='btn btn-primary'>Salvando...</button>} */}
             </div>
         </div>
         </form>
-        
     )
 }
 

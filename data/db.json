@@ -1,37 +1,26 @@
 {
   "empresas": [
     {
-      "cnpj": "12345974987",
+      "cnpj": "549849",
       "nome": "FM Consult",
-      "cep": "49849849",
-      "endereco": "Rua A",
-      "numeroEnd": "78",
+      "cep": "494984",
+      "endereco": "Rua F",
+      "numeroEnd": "45",
       "bairro": "Tatuapé",
       "uf": "São Paulo",
       "cidade": "São Paulo",
       "id": 1
     },
     {
-      "cnpj": "1654984",
-      "nome": "Luan Corp",
-      "cep": "478497",
-      "endereco": "Rua L",
-      "numeroEnd": "52",
-      "bairro": "Jabuticaba",
-      "uf": "Rio de Janeiro",
-      "cidade": "Goytacazes",
-      "id": 2
-    },
-    {
-      "cnpj": "87481984",
-      "nome": "Wes Inc",
-      "cep": "79849889",
-      "endereco": "Rua W",
-      "numeroEnd": "54",
-      "bairro": "Limão",
+      "nome": "FM Consult 3",
+      "cnpj": "165498498",
+      "cep": "9494948",
+      "endereco": "Rua WLP",
+      "numeroEnd": "456454",
+      "bairro": "Limoeiro de Limão",
       "uf": "Pernambuco",
-      "cidade": "Não sei",
-      "id": 3
+      "cidade": "Recife",
+      "id": 2
     }
   ],
   "estados": [

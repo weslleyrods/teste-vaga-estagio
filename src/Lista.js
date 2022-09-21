@@ -4,9 +4,6 @@ import {Link} from 'react-router-dom';
 
 
 const Lista = (props)=>{
-    // const [empresas, setEmpresas] = useState([]);
-    // const [isPending, setIsPending] = useState(true);
-    // const [error, setError] = useState([]);
 
     const {data: empresas, isPending, error} = useFetch('http://localhost:8000/empresas')
     // useEffect(()=>{

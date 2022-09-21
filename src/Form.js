@@ -3,13 +3,6 @@ import React, {useState} from "react";
 import useFetch from "./useFetch";
 const Form = (props)=>{
 
-// const [cnpj, setCnpj] = useState('');
-// const [nome, setNome] = useState('');
-// const [cep, setCep] = useState('');
-// const [endereco, setEndereco] = useState('');
-// const [numeroEnd, setNumeroEnd] = useState('');
-// const [bairro, setBairro] = useState('');
-
 const [isPending, setIsPending] = useState(false);
 
 const [state, setState] = React.useState({
@@ -35,7 +28,7 @@ const handleSubmit = (e) =>{
     // e.preventDefault();
     const empresa = {
         cnpj: state.cnpj,
-        nome: state.nohandleSubmitme,
+        nome: state.nome,
         cep: state.cep,
         endereco: state.endereco,
         numeroEnd: state.numeroEnd,
