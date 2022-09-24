@@ -2,12 +2,12 @@
 const Cartao = (props)=>{
 
     return(
-        <div className="card border">
+        <div className="card">
             <div className="card-header border">
                 {props.cabecalho}
-            <div>
-                {props.children}
             </div>
+            <div className="card-body">
+                {props.children}
             </div>
         </div>
     )

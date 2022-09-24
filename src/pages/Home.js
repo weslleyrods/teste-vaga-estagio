@@ -12,8 +12,8 @@ const Home = ()=>{
 
         <div className='container mt-2'>       
             <Cartao cabecalho='Formulário de Cadastro'>          
-            </Cartao>
             <Form/>
+            </Cartao>
             <Lista/>      
         </div>
     )

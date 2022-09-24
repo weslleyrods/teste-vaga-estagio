@@ -60,74 +60,80 @@ const handleSubmit = (e) =>{
         }
 
     return(
-
+    
     <form onSubmit={handleSubmit}>
         <div className="row mx-2">
-            <div className='mb-3'>
-                <label className='form-label'>CNPJ:
-                </label>
-                <input required type="text" name='cnpj'className='form-control'
-                value={state.cnpj}
-                onChange={handleChange}/>
-            </div>
-            <div className='mb-3'>                
-                <label className='form-label'>Nome da Empresa:
-                </label>
-                <input required type="text" name='nome'className='form-control'
-                value={state.nome}
-                onChange={handleChange}/>
+            <div className="row w-100">
+                <div className='mb-3 col'>
+                    <label className='form-label'>CNPJ:
+                    </label>
+                    <input required type="text" name='cnpj'className='form-control'
+                    value={state.cnpj}
+                    onChange={handleChange}/>
+                </div>
+                <div className='mb-3 col'>                
+                    <label className='form-label'>Nome da Empresa:
+                    </label>
+                    <input required type="text" name='nome'className='form-control'
+                    value={state.nome}
+                    onChange={handleChange}/>
+                </div>
             </div>
             
-            <div className='mb-3'>                
-                <label className='form-label'>CEP:
-                </label>
-                <input required type="text" name='cep'className='form-control'
-                value={state.cep}
-                onChange={handleChange}/>
+            <div className="row w-100">
+                <div className='mb-3 col'>                
+                    <label className='form-label'>CEP:
+                    </label>
+                    <input required type="text" name='cep'className='form-control'
+                    value={state.cep}
+                    onChange={handleChange}/>
+                </div>
+                <div className='mb- col'>                
+                    <label className='form-label'>Endereço:
+                    </label>
+                    <input required type="text" name='endereco'className='form-control'
+                    value={state.endereco}
+                    onChange={handleChange}/>
+                </div>
+                <div className='mb-3 col'>                
+                    <label className='form-label'>Número:
+                    </label>
+                    <input required type="text" name='numeroEnd'className='form-control'
+                    value={state.numeroEnd}
+                    onChange={handleChange}/>
+                </div>
             </div>
-            <div className='mb-3'>                
-                <label className='form-label'>Endereço:
-                </label>
-                <input required type="text" name='endereco'className='form-control'
-                value={state.endereco}
-                onChange={handleChange}/>
+            
+            <div className="row w-100">
+                <div className='mb-3 col'>                
+                    <label className='form-label'>Bairro:
+                    </label>
+                    <input required type="text" name='bairro'className='form-control'
+                    value={state.bairro}
+                    onChange={handleChange}/>
+                </div>
+                <div className='mb-3 col'>                
+                    <label className='form-label' for="estado">UF:</label>
+                    <select id='teste'required name='uf'className='form-select'
+                    value={state.uf}
+                    onChange={handleChange}
+                    >
+                    {buscaEstados}
+                    </select>
+                </div>
+                <div className='mb-3 col'>
+                    <label className='form-label' for='cidade'>Cidade:</label>
+                    <input required type="text" name='cidade' className='form-control'
+                    value={state.cidade}
+                    onChange={handleChange}
+                    />
+                </div>
             </div>
-            <div className='mb-3'>                
-                <label className='form-label'>Número:
-                </label>
-                <input required type="text" name='numeroEnd'className='form-control'
-                value={state.numeroEnd}
-                onChange={handleChange}/>
-            </div>
-            <div className='mb-3'>                
-                <label className='form-label'>Bairro:
-                </label>
-                <input required type="text" name='bairro'className='form-control'
-                value={state.bairro}
-                onChange={handleChange}/>
-            </div>
-            <div className='mb-3'>                
-                <label className='form-label' for="estado">UF:</label>
-                <select id='teste'required name='uf'className='form-select'
-                value={state.uf}
-                onChange={handleChange}
-                >
-                {buscaEstados}
 
-                </select>
-            </div>
-
-            <div className="mb-3">
-                <label className='form-label' for='cidade'>Cidade:</label>
-                <input required type="text" name='cidade' className='form-control'
-                value={state.cidade}
-                onChange={handleChange}
-                />
-            </div>
             <div className='d-flex justify-content-around'>
-            <button type='reset' onClick={handleClick} className='btn btn-danger'>Cancelar</button>
-            {!isPending &&  <button type='submit' className='btn btn-primary'>Salvar</button>}
-            {isPending &&  <button type='submit' className='btn btn-primary'>Salvando...</button>}
+                <button type='reset' onClick={handleClick} className='btn btn-danger'>Cancelar</button>
+                {!isPending &&  <button type='submit' className='btn btn-primary'>Salvar</button>}
+                {isPending &&  <button type='submit' className='btn btn-primary'>Salvando...</button>}
             </div>
         </div>
     </form>

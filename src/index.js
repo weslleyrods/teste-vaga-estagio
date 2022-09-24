@@ -13,7 +13,6 @@ const App = ()=>{
     return(
 
         <div className='container mt-2'>
-
         <Router>
             <Route exact path='/'>              
                 <Home/>
