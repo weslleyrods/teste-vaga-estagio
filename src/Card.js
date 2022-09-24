@@ -1,5 +1,5 @@
 
-const Cartao = (props)=>{
+const Card = (props)=>{
 
     return(
         <div className="card">
@@ -13,4 +13,4 @@ const Cartao = (props)=>{
     )
 }
 
-export default Cartao
+export default Card

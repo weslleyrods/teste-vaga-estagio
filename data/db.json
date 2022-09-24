@@ -1,25 +1,25 @@
 {
   "empresas": [
     {
-      "cnpj": "549849",
       "nome": "FM Consult",
+      "cnpj": "549849",
       "cep": "494984",
       "endereco": "Rua F",
-      "numeroEnd": "45",
+      "numeroEnd": "457",
       "bairro": "Tatuapé",
       "uf": "São Paulo",
       "cidade": "São Paulo",
       "id": 1
     },
     {
-      "nome": "FM Consult 33",
-      "cnpj": "165498498",
-      "cep": "9494948",
-      "endereco": "Rua WLP",
-      "numeroEnd": "456454",
+      "nome": "FM Consulta 2",
+      "cnpj": "49548949",
+      "cep": "21641954",
+      "endereco": "dadasdasd",
+      "numeroEnd": "498",
       "bairro": "Limoeiro de Limão",
-      "uf": "Pernambuco",
-      "cidade": "Recife",
+      "uf": "Goiás",
+      "cidade": "Goiania",
       "id": 2
     }
   ],

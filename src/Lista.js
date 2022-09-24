@@ -1,4 +1,3 @@
-import {useState, useEffect} from 'react';
 import useFetch from './useFetch';
 import {Link} from 'react-router-dom';
 
@@ -26,6 +25,7 @@ const Lista = (props)=>{
     //     })
     // },[]);
 
+
     return(
         <div>           
                 <table className="table">
@@ -39,12 +39,18 @@ const Lista = (props)=>{
                     {isPending && <div>Carregando...</div>}
                     </thead>
                     {empresas.map((empresas)=>(
-                    <tbody >
+                    <tbody>
                         <tr key={empresas.id}>
                             <td>{empresas.cnpj}</td>
                             <td>{empresas.nome}</td>
                             <td>
-                                <Link to={`/edit/${empresas.id}`}>Edit</Link>
+                                <Link 
+                                to={`/edit/${empresas.id}`}
+                                className='badge text-bg-dark'
+                                style={{textDecoration: 'none'}}                            
+                                >
+                                    Editar
+                                </Link>
                             </td>
                         </tr>
                     </tbody>

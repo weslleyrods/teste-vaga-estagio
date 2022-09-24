@@ -44,8 +44,9 @@ const Edit = () =>{
         })
         .then(()=>{
             console.log('Empresa atualizada!');
-            //setIsPending(false);
+            //setIsPending(false);            
         })
+        history.push('/')
     }
 
     const handleChange =(e)=>{
@@ -145,9 +146,11 @@ const Edit = () =>{
 
             <div className='d-flex justify-content-around'>
             <button type='reset' onClick={handleClick} className='btn btn-danger'>Deletar</button>
+
             { !isPending && <button type='submit' className='btn btn-primary'>
                 Salvar
                 </button>}
+                
             {/* {<button type='submit' className='btn btn-primary'>Salvando...</button>} */}
             </div>
         </div>
