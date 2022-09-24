@@ -1,9 +1,10 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import React, { useEffect, useState }  from 'react';
 import useFetch from './useFetch';
 
 const Edit = () =>{
-    const { id } = useParams()
+    const { id } = useParams();
+    const history = useHistory();
     
     let {data: empresas, isPending, error} = useFetch(`http://localhost:8000/empresas/${id}`)
 
@@ -56,7 +57,13 @@ const Edit = () =>{
         empresas[e.target.name] = value
     }
 
-    const handleClick = ()=>{}
+    const handleClick = ()=>{
+        fetch(`http://localhost:8000/empresas/${id}`,{
+            method: 'DELETE'
+        }).then(()=>{
+            history.push('/') 
+        })
+    }
 
     const buscaEstados = estados.map(estado => 
         <option value={estado.nome}>{estado.nome}</option>                  
@@ -137,7 +144,7 @@ const Edit = () =>{
             </div>
 
             <div className='d-flex justify-content-around'>
-            <button type='reset' onClick={handleClick} className='btn btn-danger'>Cancelar</button>
+            <button type='reset' onClick={handleClick} className='btn btn-danger'>Deletar</button>
             { !isPending && <button type='submit' className='btn btn-primary'>
                 Salvar
                 </button>}

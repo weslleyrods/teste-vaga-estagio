@@ -12,7 +12,7 @@
       "id": 1
     },
     {
-      "nome": "FM Consult 3",
+      "nome": "FM Consult 33",
       "cnpj": "165498498",
       "cep": "9494948",
       "endereco": "Rua WLP",
@@ -21,17 +21,6 @@
       "uf": "Pernambuco",
       "cidade": "Recife",
       "id": 2
-    },
-    {
-      "nome": "Teste Atualizada",
-      "cnpj": "498498798",
-      "cep": "9498",
-      "endereco": "Rua T",
-      "numeroEnd": "489",
-      "bairro": "Limão",
-      "uf": "Paraíba",
-      "cidade": "Nao sei",
-      "id": 3
     }
   ],
   "estados": [
