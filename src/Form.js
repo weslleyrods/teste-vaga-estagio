@@ -25,7 +25,7 @@ const [state, setState] = React.useState({
 }
 
 const handleSubmit = (e) =>{
-    // e.preventDefault();
+    //e.preventDefault();
     const empresa = {
         cnpj: state.cnpj,
         nome: state.nome,
@@ -68,6 +68,7 @@ const handleSubmit = (e) =>{
                     <label className='form-label'>CNPJ:
                     </label>
                     <input required type="text" name='cnpj'className='form-control'
+                    maxLength={'14'}
                     value={state.cnpj}
                     onChange={handleChange}/>
                 </div>
@@ -75,6 +76,7 @@ const handleSubmit = (e) =>{
                     <label className='form-label'>Nome da Empresa:
                     </label>
                     <input required type="text" name='nome'className='form-control'
+                    maxLength={'30'}
                     value={state.nome}
                     onChange={handleChange}/>
                 </div>
@@ -85,6 +87,7 @@ const handleSubmit = (e) =>{
                     <label className='form-label'>CEP:
                     </label>
                     <input required type="text" name='cep'className='form-control'
+                    maxLength={'8'}
                     value={state.cep}
                     onChange={handleChange}/>
                 </div>
@@ -92,6 +95,7 @@ const handleSubmit = (e) =>{
                     <label className='form-label'>Endereço:
                     </label>
                     <input required type="text" name='endereco'className='form-control'
+                    maxLength={'30'}
                     value={state.endereco}
                     onChange={handleChange}/>
                 </div>
@@ -99,6 +103,7 @@ const handleSubmit = (e) =>{
                     <label className='form-label'>Número:
                     </label>
                     <input required type="text" name='numeroEnd'className='form-control'
+                    maxLength={'10'}
                     value={state.numeroEnd}
                     onChange={handleChange}/>
                 </div>
@@ -109,6 +114,7 @@ const handleSubmit = (e) =>{
                     <label className='form-label'>Bairro:
                     </label>
                     <input required type="text" name='bairro'className='form-control'
+                    maxLength={'30'}
                     value={state.bairro}
                     onChange={handleChange}/>
                 </div>
@@ -124,6 +130,7 @@ const handleSubmit = (e) =>{
                 <div className='mb-3 col'>
                     <label className='form-label' for='cidade'>Cidade:</label>
                     <input required type="text" name='cidade' className='form-control'
+                    maxLength={'30'}
                     value={state.cidade}
                     onChange={handleChange}
                     />

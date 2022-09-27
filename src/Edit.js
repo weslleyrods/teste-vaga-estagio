@@ -79,6 +79,7 @@ const Edit = () =>{
                     <label className='form-label'>CNPJ:
                     </label>
                     <input required type="text" name='cnpj'className='form-control'
+                    maxLength={'14'}
                     value={empresas.cnpj}
                     onChange={handleChange}
                     />
@@ -87,6 +88,7 @@ const Edit = () =>{
                     <label className='form-label'>Nome da Empresa:
                     </label>
                     <input required type="text" name='nome'className='form-control'
+                    maxLength={'30'}
                     value={empresas.nome}
                     onChange={handleChange}/>
                 </div>
@@ -97,6 +99,7 @@ const Edit = () =>{
                     <label className='form-label'>CEP:
                     </label>
                     <input required type="text" name='cep'className='form-control'
+                    maxLength={'8'}
                     value={empresas.cep}
                     onChange={handleChange}/>
                 </div>
@@ -104,6 +107,7 @@ const Edit = () =>{
                     <label className='form-label'>Endereço:
                     </label>
                     <input required type="text" name='endereco'className='form-control'
+                    maxLength={'30'}
                     value={empresas.endereco}
                     onChange={handleChange}/>
                 </div>
@@ -111,6 +115,7 @@ const Edit = () =>{
                     <label className='form-label'>Número:
                     </label>
                     <input required type="text" name='numeroEnd'className='form-control'
+                    maxLength={'10'}
                     value={empresas.numeroEnd}
                     onChange={handleChange}/>
                 </div>
@@ -121,6 +126,7 @@ const Edit = () =>{
                     <label className='form-label'>Bairro:
                     </label>
                     <input required type="text" name='bairro'className='form-control'
+                    maxLength={'30'}
                     value={empresas.bairro}
                     onChange={handleChange}/>
                 </div>
@@ -138,6 +144,7 @@ const Edit = () =>{
                 <div className="mb-3 col">
                     <label className='form-label' for='cidade'>Cidade:</label>
                     <input required type="text" name='cidade' className='form-control'
+                    maxLength={'30'}
                     value={empresas.cidade}
                     onChange={handleChange}
                     />
